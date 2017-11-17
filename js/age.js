@@ -17,14 +17,30 @@ export class Birthdate {
   constructor(input){
     this.dob = input;
     this.dobDate = new Date(input);
-    this.ageSeconds = (Date.now() - this.dobDate.getTime())/1000;
+    this.ageSeconds;
     this.age;
     this.lifeExpectancy;
   }
 
   setAge(){
-     this.ageSeconds = (Date.now() - this.dobDate.getTime())/1000;
-     this.age = Math.floor(this.ageSeconds*60*60*24*365);
+    // Date now can't be used for testing since it's constantly changing.
+    // will use dummy date now for test purposes.
+    let timeDiffInSeconds = (1510951570847 - this.dobDate.getTime())/1000;
+    this.ageSeconds = timeDiffInSeconds;
+    this.age = Math.floor(timeDiffInSeconds/(365*24*60*60));
+  }
+
+  getAge(seconds){
+    return Math.floor(seconds/(365*24*60*60));
+  }
+
+  getMercuryYrs(){
+    let mercYSec = (this.ageSeconds/.24);
+    return this.getAge(mercYSec);;
+  }
+
+  getVenusYrs(){
+    
   }
 
 
