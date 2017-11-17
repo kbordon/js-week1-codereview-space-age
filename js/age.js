@@ -22,29 +22,33 @@ export class Background{
     // check region
     if (this.region != "global"){
       // lives in US
-      yearModifier /= 0.910008382;
+      console.log(" is US")
+      yearModifier *= 0.910008382;
+
+      // check economic class only for US
+      if (this.eClass === "richest") {
+        if (this.gender === "female"){
+          console.log("this modifier for rich female was used" );
+          yearModifier *= 0.88;
+        } else {
+          yearModifier *= 0.86;
+        }
+      } else if (this.eClass === "middle"){
+        yearModifier *= .95;
+      } else if (this.eClass === "poor") {
+        if(this.gender ==="female"){
+          yearModifier *= 1.03;
+        }
+      }
     }
     // check gender
     if (this.gender === "female") {
-      yearModifier /= 0.97;
+      yearModifier *= 0.97;
     } else if (this.gender === "male") {
-      yearModifier /= 1.03;
+      console.log("male modifier * 1.03 used")
+      yearModifier *= 1.03;
     }
-    // check economic class
-    if (this.eClase === "richest") {
-      if (this.gender === "male"){
-        yearModifier /= 0.86;
-      } else {
-        yearModifier /= .88;
-      }
-    } else if (this.eClass === "middle"){
-      yearModifier /= .95;
-    } else if (this.eClass === "poor") {
-      if(this.gender ==="female"){
-        yearModifier /= 1.03;
-      }
-    }
-    return parseFloat((yearModifier * globalExpectancy).toFixed(2));
+    return parseFloat((globalExpectancy/yearModifier).toFixed(2));
   }
 }
 

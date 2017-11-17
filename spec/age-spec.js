@@ -41,6 +41,21 @@ describe('Background', function(){
     expect(newBG.getLifeExpectancy()).toEqual(78.75);
   });
 
+  it('it will return US life expectancy based on rich male US background', function(){
+    let newBG = new Background("male", "richest", "US");
+    expect(newBG.getLifeExpectancy()).toEqual(88.9);
+  });
+
+  it('it will return US life expectancy based on global female background', function(){
+    let newBG = new Background("female","","global");
+    expect(newBG.getLifeExpectancy()).toEqual(73.88);
+  });
+
+  it('it will return US life expectancy based on rich US female background', function(){
+    let newBG = new Background("female","richest", "US");
+    expect(newBG.getLifeExpectancy()).toEqual(92.25);
+  });
+
 })
 
 describe('Birthdate', function(){
