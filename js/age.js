@@ -12,8 +12,8 @@ export class Age {
 export class Background{
   constructor(gender = "", eClass = "", region = "global"){
     this.region = region;
-    this.gender = gender;
     this.eClass = eClass;
+    this.gender = gender;
   }
 
   getLifeExpectancy(){
@@ -22,7 +22,7 @@ export class Background{
     // check region
     if (this.region != "global"){
       // lives in US
-      yearModifier = 0.91043069;
+      yearModifier /= 0.910008382;
     }
     // check gender
     if (this.gender === "female") {
@@ -44,7 +44,7 @@ export class Background{
         yearModifier /= 1.03;
       }
     }
-    return yearModifier * globalExpectancy;
+    return parseFloat((yearModifier * globalExpectancy).toFixed(2));
   }
 }
 

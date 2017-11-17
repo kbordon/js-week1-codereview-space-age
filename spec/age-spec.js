@@ -16,16 +16,29 @@ describe('Age', function(){
 })
 
 describe('Background', function(){
-  let gender;
-  let eClass;
-  let region;
-
 
   it('it will create a Background object with default values', function(){
     let newBG = new Background();
-    expect(newBG.region).toEqual("global");
     expect(newBG.gender).toEqual("");
     expect(newBG.eClass).toEqual("");
+    expect(newBG.region).toEqual("global");
+  });
+
+  it('it will create a Background object with different values', function(){
+    let newBG = new Background("female","poor", "US");
+    expect(newBG.gender).toEqual("female");
+    expect(newBG.eClass).toEqual("poor");
+    expect(newBG.region).toEqual("US");
+  });
+
+  it('it will return default life expectancy based on Background object', function(){
+    let newBG = new Background();
+    expect(newBG.getLifeExpectancy()).toEqual(71.66);
+  });
+
+  it('it will return US life expectancy based on US region', function(){
+    let newBG = new Background("", "", "US");
+    expect(newBG.getLifeExpectancy()).toEqual(78.75);
   });
 
 })
