@@ -35,9 +35,13 @@ export class Birthdate {
   }
 
   getPlanetYrs(){
-    let planetRatios = [];
-
     // for refactoring
+    const planetRatios = [0.24,0.62,1.88,11.86];
+    let planetYrs = [];
+    for (let i = 0; i < 4; i++){
+      planetYrs.push(this.getAge(this.ageSeconds/planetRatios[i]));
+    }
+    return planetYrs;
   }
 
   getMercuryYrs(){

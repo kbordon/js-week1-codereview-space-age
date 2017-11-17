@@ -55,4 +55,12 @@ describe('Birthdate', function(){
     expect(testBirthdate.getJupiterYrs()).toEqual(2);
   });
 
+  it('getPlanetYrs will get all the ages by the respective planets', function(){
+    testBirthdate.setAge();
+    expect(testBirthdate.getPlanetYrs()[0]).toEqual(113);
+    expect(testBirthdate.getPlanetYrs()[1]).toEqual(44);
+    expect(testBirthdate.getPlanetYrs()[2]).toEqual(14);
+    expect(testBirthdate.getPlanetYrs()[3]).toEqual(2);
+  });
+
 })
