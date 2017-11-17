@@ -34,13 +34,23 @@ export class Birthdate {
     return Math.floor(seconds/(365*24*60*60));
   }
 
+  getPlanetYrs(){
+    // for refactoring
+  }
+
   getMercuryYrs(){
     let mercYSec = (this.ageSeconds/.24);
-    return this.getAge(mercYSec);;
+    return this.getAge(mercYSec);
   }
 
   getVenusYrs(){
-    
+    let venYSec = (this.ageSeconds/.62);
+    return this.getAge(venYSec);
+  }
+
+  getMarsYrs(){
+    let marsYSec = (this.ageSeconds/1.88);
+    return this.getAge(marsYSec);
   }
 
 

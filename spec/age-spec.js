@@ -42,7 +42,12 @@ describe('Birthdate', function(){
 
   it('getVenusYrs will get the age of person in Venus years', function(){
     testBirthdate.setAge();
-    expect(testBirthdate.getVenusYrs()).toEqual(113);
+    expect(testBirthdate.getVenusYrs()).toEqual(44);
+  });
+
+  it('getMarsYrs will get the age of person in Mars years', function(){
+    testBirthdate.setAge();
+    expect(testBirthdate.getMarsYrs()).toEqual(14);
   });
 
 })
