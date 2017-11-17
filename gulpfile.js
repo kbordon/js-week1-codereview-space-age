@@ -5,6 +5,7 @@ var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
 var buildProduction = utilities.env.production;
 var del = require('del');
+var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync').create();
 var babelify = require('babelify');
 var lib = require('bower-files')({
