@@ -7,16 +7,51 @@ export class Age {
     console.log(this.dobDate.getDate());
   }
 
-  // getYears() {
-  //   let now = Date.now();
-  //   this.dobDate
-  // }
+}
+
+export class Background{
+  constructor(gender = "", eClass = "", region = "global"){
+    this.region = region;
+    this.gender = gender;
+    this.eClass = eClass;
+  }
+
+  getLifeExpectancy(){
+    const globalExpectancy = 71.66;
+    let yearModifier = 1;
+    // check region
+    if (this.region != "global"){
+      // lives in US
+      yearModifier = 0.91043069;
+    }
+    // check gender
+    if (this.gender === "female") {
+      yearModifier /= 0.97;
+    } else if (this.gender === "male") {
+      yearModifier /= 1.03;
+    }
+    // check economic class
+    if (this.eClase === "richest") {
+      if (this.gender === "male"){
+        yearModifier /= 0.86;
+      } else {
+        yearModifier /= .88;
+      }
+    } else if (this.eClass === "middle"){
+      yearModifier /= .95;
+    } else if (this.eClass === "poor") {
+      if(this.gender ==="female"){
+        yearModifier /= 1.03;
+      }
+    }
+    return yearModifier * globalExpectancy;
+  }
 }
 
 export class Birthdate {
-  constructor(input){
-    this.dob = input;
-    this.dobDate = new Date(input);
+  constructor(bDayString, lifeExpectancy){
+    this.dob = bDayString;
+    this.dobDate = new Date(bDayString);
     this.ageSeconds;
     this.age;
     this.lifeExpectancy;
@@ -62,6 +97,10 @@ export class Birthdate {
   getJupiterYrs(){
     let jupYSec = (this.ageSeconds/11.86);
     return this.getAge(jupYSec);
+  }
+
+  getYearsLeft(){
+
   }
 
 

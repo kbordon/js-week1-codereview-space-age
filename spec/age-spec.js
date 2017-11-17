@@ -1,4 +1,4 @@
-import { Age, Birthdate } from './../js/age.js';
+import { Age, Birthdate, Background } from './../js/age.js';
 
 describe('Age', function(){
   let testAge;
@@ -12,6 +12,21 @@ describe('Age', function(){
     testAge = new Age(27);
     expect(testAge.ageSeconds).toEqual(851472000);
   })
+
+})
+
+describe('Background', function(){
+  let gender;
+  let eClass;
+  let region;
+
+
+  it('it will create a Background object with default values', function(){
+    let newBG = new Background();
+    expect(newBG.region).toEqual("global");
+    expect(newBG.gender).toEqual("");
+    expect(newBG.eClass).toEqual("");
+  });
 
 })
 
@@ -62,5 +77,6 @@ describe('Birthdate', function(){
     expect(testBirthdate.getPlanetYrs()[2]).toEqual(14);
     expect(testBirthdate.getPlanetYrs()[3]).toEqual(2);
   });
+
 
 })
