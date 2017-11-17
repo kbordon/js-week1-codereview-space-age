@@ -35,6 +35,8 @@ export class Birthdate {
   }
 
   getPlanetYrs(){
+    let planetRatios = [];
+
     // for refactoring
   }
 
@@ -51,6 +53,11 @@ export class Birthdate {
   getMarsYrs(){
     let marsYSec = (this.ageSeconds/1.88);
     return this.getAge(marsYSec);
+  }
+
+  getJupiterYrs(){
+    let jupYSec = (this.ageSeconds/11.86);
+    return this.getAge(jupYSec);
   }
 
 

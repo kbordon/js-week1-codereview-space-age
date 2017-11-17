@@ -50,4 +50,9 @@ describe('Birthdate', function(){
     expect(testBirthdate.getMarsYrs()).toEqual(14);
   });
 
+  it('getJupiterYrs will get the age of person in Jupiter years', function(){
+    testBirthdate.setAge();
+    expect(testBirthdate.getJupiterYrs()).toEqual(2);
+  });
+
 })
