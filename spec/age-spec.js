@@ -33,27 +33,27 @@ describe('Background', function(){
 
   it('it will return default life expectancy based on Background object', function(){
     let newBG = new Background();
-    expect(newBG.getLifeExpectancy()).toEqual(71.66);
+    expect(newBG.getLifeExpectancy()).toEqual(72);
   });
 
   it('it will return US life expectancy based on US region', function(){
     let newBG = new Background("", "", "US");
-    expect(newBG.getLifeExpectancy()).toEqual(78.75);
+    expect(newBG.getLifeExpectancy()).toEqual(79);
   });
 
   it('it will return US life expectancy based on rich male US background', function(){
     let newBG = new Background("male", "richest", "US");
-    expect(newBG.getLifeExpectancy()).toEqual(88.9);
+    expect(newBG.getLifeExpectancy()).toEqual(89);
   });
 
   it('it will return US life expectancy based on global female background', function(){
     let newBG = new Background("female","","global");
-    expect(newBG.getLifeExpectancy()).toEqual(73.88);
+    expect(newBG.getLifeExpectancy()).toEqual(74);
   });
 
   it('it will return US life expectancy based on rich US female background', function(){
     let newBG = new Background("female","richest", "US");
-    expect(newBG.getLifeExpectancy()).toEqual(92.25);
+    expect(newBG.getLifeExpectancy()).toEqual(92);
   });
 
 })
@@ -61,10 +61,12 @@ describe('Background', function(){
 describe('Birthdate', function(){
   let testDOB;
   let testBirthdate;
+  let testBG;
 
   beforeEach(function() {
     testDOB = "1990-07-17 00:00:00";
     testBirthdate = new Birthdate(testDOB);
+    testBG = new Background()
   });
 
   it('setAge will set the years in seconds from a birthdate', function(){
@@ -104,6 +106,37 @@ describe('Birthdate', function(){
     expect(testBirthdate.getPlanetYrs()[1]).toEqual(44);
     expect(testBirthdate.getPlanetYrs()[2]).toEqual(14);
     expect(testBirthdate.getPlanetYrs()[3]).toEqual(2);
+  });
+
+  it('getYearsLeft will get years depending on default background and if Mercury chosen', function(){
+    let lifeExp = testBG.getLifeExpectancy();
+    let testBD2 = new Birthdate(testDOB, lifeExp);
+    testBD2.setAge();
+    expect(testBD2.getYearsLeft(0)).toEqual(188);
+  });
+
+  it('getYearsLeft will get years depending on default background and Venus chosen', function(){
+      let lifeExp = testBG.getLifeExpectancy();
+      let testBD2 = new Birthdate(testDOB, lifeExp);
+      testBD2.setAge();
+      expect(testBD2.getYearsLeft(1)).toEqual(73);
+
+  });
+
+  it('getYearsLeft will get years depending on default background and Mars chosen', function(){
+      let lifeExp = testBG.getLifeExpectancy();
+      let testBD2 = new Birthdate(testDOB, lifeExp);
+      testBD2.setAge();
+      expect(testBD2.getYearsLeft(2)).toEqual(24);
+
+  });
+
+  it('getYearsLeft will get years depending on default background and Jupiter chosen', function(){
+      let lifeExp = testBG.getLifeExpectancy();
+      let testBD2 = new Birthdate(testDOB, lifeExp);
+      testBD2.setAge();
+      expect(testBD2.getYearsLeft(3)).toEqual(4);
+
   });
 
 

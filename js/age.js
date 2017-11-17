@@ -22,19 +22,17 @@ export class Background{
     // check region
     if (this.region != "global"){
       // lives in US
-      console.log(" is US")
       yearModifier *= 0.910008382;
 
       // check economic class only for US
       if (this.eClass === "richest") {
         if (this.gender === "female"){
-          console.log("this modifier for rich female was used" );
           yearModifier *= 0.88;
         } else {
           yearModifier *= 0.86;
         }
       } else if (this.eClass === "middle"){
-        yearModifier *= .95;
+        yearModifier *= 0.95;
       } else if (this.eClass === "poor") {
         if(this.gender ==="female"){
           yearModifier *= 1.03;
@@ -45,10 +43,9 @@ export class Background{
     if (this.gender === "female") {
       yearModifier *= 0.97;
     } else if (this.gender === "male") {
-      console.log("male modifier * 1.03 used")
       yearModifier *= 1.03;
     }
-    return parseFloat((globalExpectancy/yearModifier).toFixed(2));
+    return Math.round(globalExpectancy/yearModifier);
   }
 }
 
@@ -58,7 +55,7 @@ export class Birthdate {
     this.dobDate = new Date(bDayString);
     this.ageSeconds;
     this.age;
-    this.lifeExpectancy;
+    this.lifeExpectancy = lifeExpectancy;
   }
 
   setAge(){
@@ -84,12 +81,12 @@ export class Birthdate {
   }
 
   getMercuryYrs(){
-    let mercYSec = (this.ageSeconds/.24);
+    let mercYSec = (this.ageSeconds/0.24);
     return this.getAge(mercYSec);
   }
 
   getVenusYrs(){
-    let venYSec = (this.ageSeconds/.62);
+    let venYSec = (this.ageSeconds/0.62);
     return this.getAge(venYSec);
   }
 
@@ -103,8 +100,10 @@ export class Birthdate {
     return this.getAge(jupYSec);
   }
 
-  getYearsLeft(){
-
+  getYearsLeft(number){
+    const planetRatios = [0.24,0.62,1.88,11.86];
+    let yearsLeft = this.lifeExpectancy - this.age;
+    return Math.round(yearsLeft /= planetRatios[number]);
   }
 
 
