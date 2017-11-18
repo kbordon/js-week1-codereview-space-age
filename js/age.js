@@ -25,7 +25,7 @@ export class Background{
       yearModifier *= 0.910008382;
 
       // check economic class only for US
-      if (this.eClass === "richest") {
+      if (this.eClass === "high") {
         if (this.gender === "female"){
           yearModifier *= 0.88;
         } else {
@@ -33,7 +33,7 @@ export class Background{
         }
       } else if (this.eClass === "middle"){
         yearModifier *= 0.95;
-      } else if (this.eClass === "poor") {
+      } else if (this.eClass === "low") {
         if(this.gender ==="female"){
           yearModifier *= 1.03;
         }
