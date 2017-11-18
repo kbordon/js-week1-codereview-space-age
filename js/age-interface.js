@@ -2,7 +2,7 @@ import { Age, Birthdate, Background } from './../js/age.js';
 
 $(document).ready(function(){
   $("#space-age").submit(function(event){
-    $("#output").empty();
+    $("#earth-output, #planets-output").empty();
     event.preventDefault();
     let birthDateInput = $("#birthdate").val();
     let birthTimeInput = $("#birthtime").val();
@@ -21,7 +21,7 @@ $(document).ready(function(){
     let yearsLeft;
     let yearsLeftString = "";
     let planetYearsDisplay;
-    $("#earth-output").append(`<h3>You've been on Earth for ${newBirthdate.age} years but...</h3>`);
+    $("#earth-output").append(`<h2>You've been on Earth for ${newBirthdate.age} years but...</h2>`);
     for(let i = 0; i < 4; i++){
        yearsLeft = newBirthdate.getYearsLeft(i);
        // alert(yearsLeft);
@@ -36,9 +36,12 @@ $(document).ready(function(){
          planetYearsDisplay = "less than a year";
        }
       $("#planets-output").append(`<div class='col-lg-3'>
-                            On <strong>${planets[i]}</strong>, you're about <strong>${planetYearsDisplay}</strong> years old.
-                            <p>${yearsLeftString}</p>
-                            </div>`);
+                                    <br>
+                                    <p class="fancy">On <strong>${planets[i]}</strong>, you're about <strong>${planetYearsDisplay}</strong> years old.<p>
+                                    <p>${yearsLeftString}</p>
+                                    <div id="${planets[i]}">
+                                    </div>
+                                  </div>`);
     };
   });
 });
