@@ -4,7 +4,7 @@ export class Age {
     this.ageSeconds = input * 365 * 24 * 60 * 60;
     // the above does not account for leap years
     this.dobDate = new Date(input);
-    console.log(this.dobDate.getDate());
+    // console.log(this.dobDate.getDate());
   }
 
 }
