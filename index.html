@@ -23,37 +23,46 @@
               <div class="form-group">
                 <input type="time" id="birthtime" value="00:00">
               </div>
-              <button type="submit">Submit</button>
+              <button id="main" type="submit">SUBMIT</button>
             </div>
 
             <div class="col-lg-4 add-form">
-              <h4>Additional Background Information</h4>
-              <p><em>Completely optional. Your life expectancy will be determined on default values should you defer from answering the following.</em></p>
-              <p class="label">Gender:</p>
-              <div class="form-group">
-                <select id="gender">
-                  <option value="" selected="selected">prefer not to state</option>
-                  <option>female</option>
-                  <option>male</option>
-                  <option value="">nonbinary</option>
-                </select>
+              <div class="row">
+                <div class="col-lg-11 col-xs-11 col-sm-11 col-md-11">
+                  <h4>Additional Background Information</h4>
+                  <p><em>Completely optional. Your life expectancy will be determined on default values should you refrain from answering the following.</em></p>
+                </div>
+                <div class="col-lg-1 col-xs-1 col-sm-1 col-md-1">
+                  <button type="button" id="optional-toggle" title="click to display additional background input options">&#8645;</button>
+                </div>
               </div>
-              <p class="label">Region:</p>
-              <div class="form-group">
-                <select id="region">
-                  <option value="global" selected="selected">prefer not to state</option>
-                  <option>US</option>
-                  <option value="global">Outside of United States</option>
-                </select>
-              </div>
-              <p class="label">Economic Class:</p>
-              <div class="form-group">
-                <select id="e-class">
-                  <option value="" selected="selected">prefer not to state</option>
-                  <option value="high">High</value>
-                  <option value="middle">Middle</option>
-                  <option value="low">Low</option>
-                </select>
+              <div id="optional" class="opt-hide">
+                <p class="label">Gender:</p>
+                <div class="form-group">
+                  <select id="gender">
+                    <option value="" selected="selected">prefer not to state</option>
+                    <option>female</option>
+                    <option>male</option>
+                    <option value="">nonbinary</option>
+                  </select>
+                </div>
+                <p class="label">Region:</p>
+                <div class="form-group">
+                  <select id="region">
+                    <option value="global" selected="selected">prefer not to state</option>
+                    <option>US</option>
+                    <option value="global">Outside of United States</option>
+                  </select>
+                </div>
+                <p class="label">Economic Class:</p>
+                <div class="form-group">
+                  <select id="e-class">
+                    <option value="" selected="selected">prefer not to state</option>
+                    <option value="high">High</value>
+                    <option value="middle">Middle</option>
+                    <option value="low">Low</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>

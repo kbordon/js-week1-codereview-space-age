@@ -13,13 +13,14 @@ body {
 
 h2,h3, h4 {
   font-family: 'Aldrich', sans-serif;
-  margin-top: 50px;
+  /*margin-top: 50px;*/
 }
 
+/*not using this for anything
 .fancy {
   font-family: 'Jura', sans-serif;
   font-size: 18px;
-}
+}*/
 
 .top {
   text-align: center;
@@ -27,7 +28,8 @@ h2,h3, h4 {
   font-size: 60px;
   font-weight: bolder;
   color: white;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  text-shadow: 1px 1px 2px black, 0 0 25px goldenrod, 0 0 5px darkgoldenrod;
+  /*text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;*/
   margin-top: 75px;
   margin-bottom: 25px;
 }
@@ -48,33 +50,54 @@ h2,h3, h4 {
   font-size: 16;
 }
 
+.add-form h4 {
+  margin-top: 0;
+}
+
+.opt-hide {
+  display: none;
+}
 
 input[type=date], input[type=time], select {
   border: none;
-  border-bottom: 2px solid blue;
   background-color: rgba(255,255,255,0.8);
   color: black;
   border-radius: 4px;
+  margin-top: 5px;
 }
 
 input[type=date], input[type=time] {
   width: 90%;
+  border-bottom: 2px solid blue;
   padding: 15px 15px;
   padding-top: 15px;
   font-size: 19px;
 }
 
-button {
-    background-color: darkblue;
-    border-top: 1px solid blue;
-    border-left: 1px solid blue;
+button#main {
+    background-color: darkred;
+    border-top: 1px solid red;
+    border-left: 1px solid red;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     color: white;
     font-size: 18px;
-    padding: 10px 20px;
+    font-family: 'Aldrich', sans-serif;
+    padding: 5px 10px;
     text-decoration: none;
+    text-shadow: 1px 1px black;
     margin: 4px 2px;
+}
+
+button#optional-toggle {
+  background-color: darkred;
+  border-top: 1px solid red;
+  border-left: 1px solid red;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  color: white;
+  font-size: 12px;
+  margin: 0;
 }
 
 select {
@@ -87,7 +110,7 @@ select {
   height: 10px;
   width: 10px;
   border-radius: 100%;
-  background-color: lightblue;
+  background-color: lightgray;
   background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.7));
   box-shadow: 1px 1px 10px 1px gray;
   float: right;
@@ -99,7 +122,7 @@ select {
   height: 20px;
   width: 20px;
   border-radius: 100%;
-  background-color: lemonchiffon;
+  background-color: #FFFFCC;
   background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.7));
   box-shadow: 1px 1px 10px 1px gray;
   float: right;
@@ -111,7 +134,7 @@ select {
   height: 15px;
   width: 15px;
   border-radius: 100%;
-  background-color: crimson;
+  background-color: indianred;
   background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.7));
   box-shadow: 1px 1px 10px 1px gray;
   float: right;

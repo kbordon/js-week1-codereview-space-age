@@ -1,6 +1,15 @@
 import { Age, Birthdate, Background } from './../js/age.js';
 
 $(document).ready(function(){
+  // addtional form toggle
+  $("#optional-toggle").click(function(){
+    $("#gender").val("");
+    $("#region").val("global");
+    $("#e-class").val("");
+    $("#optional").toggleClass("opt-hide");
+  });
+
+  // main age form
   $("#space-age").submit(function(event){
     $("#earth-output, #planets-output").empty();
     event.preventDefault();
@@ -21,11 +30,21 @@ $(document).ready(function(){
     let yearsLeft;
     let yearsLeftString = "";
     let planetYearsDisplay;
-    $("#earth-output").append(`<h2>You've been on Earth for ${newBirthdate.age} years but...</h2>`);
+    let earthYearsLeft;
+    if ((newBirthdate.lifeExpectancy - newBirthdate.age) === 0 ) {
+      earthYearsLeft = `and apparently you've hit the expected finish line! Who knows what's in store for you`;
+    } else if ((newBirthdate.lifeExpectancy - newBirthdate.age) < 0 ) {
+      earthYearsLeft = `and ${-(newBirthdate.lifeExpectancy - newBirthdate.age)} more years than expected! Immortality's not just for vampires and AI these days it seems`
+    } else {
+      earthYearsLeft = `with, for better or worse, about ${newBirthdate.lifeExpectancy - newBirthdate.age} to go but`;
+    }
+    $("#earth-output").append(`<h2>You've been on Earth for ${newBirthdate.age} years ${earthYearsLeft} ...</h2>`);
     for(let i = 0; i < 4; i++){
        yearsLeft = newBirthdate.getYearsLeft(i);
        // alert(yearsLeft);
-       if (yearsLeft < 1){
+       if (yearsLeft === 0){
+         yearsLeftString = "";
+       } else if (yearsLeft < 1){
          yearsLeftString = `Persisted By: ${-yearsLeft} years`;
        } else if (planetYears[i] > 0){
          yearsLeftString = `Time Remaining: ${yearsLeft} years`;
