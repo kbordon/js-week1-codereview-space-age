@@ -59,9 +59,8 @@ export class Birthdate {
   }
 
   setAge(){
-    // Date now can't be used for testing since it's constantly changing.
-    // will use dummy date now for test purposes.
-    let timeDiffInSeconds = (1510951570847 - this.dobDate.getTime())/1000;
+    // For testing purposes, replace Date.now() with 1510951570847
+    let timeDiffInSeconds = (Date.now() - this.dobDate.getTime())/1000;
     this.ageSeconds = timeDiffInSeconds;
     this.age = Math.floor(timeDiffInSeconds/(365*24*60*60));
   }
@@ -105,6 +104,5 @@ export class Birthdate {
     let yearsLeft = this.lifeExpectancy - this.age;
     return Math.round(yearsLeft /= planetRatios[number]);
   }
-
 
 }

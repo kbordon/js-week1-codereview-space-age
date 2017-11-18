@@ -13,7 +13,7 @@ $(document).ready(function(){
 
     let newDate = new Date(`${birthDateInput} ${birthTimeInput}`);
     let newBackground = new Background(genderInput, eclassInput, regionInput);
-    let newBirthdate = new Birthdate(`${birthDateInput} ${birthTimeInput}`, newBackground.getLifeExpectancy());
+    // let newBirthdate = new Birthdate(`${birthDateInput} ${birthTimeInput}`, newBackground.getLifeExpectancy());
     newBirthdate.setAge();
 
     let planetYears = newBirthdate.getPlanetYrs();

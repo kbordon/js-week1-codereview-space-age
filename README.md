@@ -1,40 +1,64 @@
-## Planning
+# Super Galactic Age Calculator
+### BDD Javascript Code Review _11.17.2017_
+#### By Kimberly Bordon
 
-1. Configuration/dependencies
-  * This should include ALL dependencies.
-  * It should also include WHERE they are defined and used in the project
-  * It could include a short description of what each does for you
+## Description
+_This is an application that will determine a person's age, but by different planet years. The user will enter their birthdate, and also have the option of inputting other factors. After clicking submit button, their age in Mercury, Venus, Mars and Jupiter years will be displayed, as well as their expected remaining years also by respective planets._
 
-2. Specs
-  * Take a person's age in years and convert it into seconds.
-    * input: 30
-    * output: 30 * (365 * 24 * 60 * 60) or (31,536,000)
-    (or you can use moment?)
-    * moment.duration(age, 'years').seconds();
-  * take two dates and determine the difference, in seconds, between the two. get the bday and now time. use moment() for now time. then use string moment("2010-10-20 4:30",       "YYYY-MM-DD HH:mm"); should i use moment or just date?
-        * 1990 10 30
-        * bday - 2017 11 17 8:42 = in seconds
-  * return age of human in mercury years.
-    * 1990 10 30 mercury (select a radio button or ticky box?)
-    * today - bday = seconds/(.24) to humanize?    
-    * today - bday = seconds/(.62) Venus
-    * today - bday = sec/(1.88) Mars
-    * today - bday = sec/(11.86) Jupiter
-  * how long do i have left to live on planet
-    calculate expectancy (base * modifiers) - age = yearsLeft * planet modifier (and if this is negative, they already past their years left. sayyyyy immortality isn't just for diamond skinned vampire, you've outlived your life expectancy by blah blah years! )
+## Setup/Installation
+* Make sure you have [Node](https://nodejs.org/en/download/) and the npm (Node package manager, which should come automatically) installed.
+* Go to this repository page, and clone the project.
+* Navigate to top level folder of the cloned repository in terminal or powershell, and enter the following commands:
+```
+$ npm install
+$ bower install
+```
+* In order to run test, run this command: `$ npm test`
+
+* To build project, enter the following:
+```
+$ gulp build
+$ gulp serve
+```
+
+* To build the project to be production ready, add the production flag to the build command like so:
+`$ gulp build --production`
 
 
-3. Integration
-  * index page with at least two js files, one for interface and the other backend
-  * index will have a form that takes the birthdate (and time of birth if they know it? start with date.)
-  * should return all values maybe with graphic of planet, next to information
-    -planet graphic
-    - 125 mercury years. you are expected to live 203 years more on mercury.
-  * use moment.js
+## Specs
+|Behavior | Input | Output|
+|-|-|-|
+| Take a person's age in years and convert it into seconds. | 30 | 946080000 |
+| It will take a person's birthdate, and give the difference between then and now in seconds.| User enters in form: <br>11-09-1987 | 946080000 (replace this with correct value) |
+| Take a person's age and return it Mercury years. | | |
+| Take a person's age and return it Venus years. | | |
+| Take a person's age and return it Mars years. | | |
+| Take a person's age and return it Jupiter years. | | |
+| Take a person's age, and calculate their years left based on life expectancy. | | |
+| Take expected remaining years of person's age, and convert them to Mercury years. | | |
+| Take expected remaining years of person's age, and convert them to Venus years. | | |
+| Take expected remaining years of person's age, and convert them to Mars years. | | |
+| Take expected remaining years of person's age, and convert them to Jupiter years. | | |
+| If User's current age surpasses their life expectancy, message showing remaining years changes to reflect that. | | |
 
-4. UX/UI
-  * use bootstrap probably, and custom styles.
 
-5. Polish
-  * Refactor minor portion of...
-  * Delete unused...
+
+## Known Bugs
+-This application does not account for leap years, so a person's age or calculation maybe technically be off by a few days.
+
+
+
+## Contact
+If you have any questions, comments, or concerns, please contact Kimberly at [kbordon@gmail.com](mailto:kbordon@gmail.com).
+
+## Technology Used
+* Node JS
+* Gulp
+* Bower
+* Jasmine
+* Karma
+
+## License
+*This software is licensed under the MIT license.*
+
+Copyright © 2017 **Kimberly Bordon**
