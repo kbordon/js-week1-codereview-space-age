@@ -1,5 +1,5 @@
-# Super Galactic Age Calculator
-### BDD Javascript Code Review _11.17.2017_
+# SPACE AGED
+### A Super Galactic Age Calculator (BDD Javascript Code Review _11.17.2017_)
 #### By Kimberly Bordon
 
 ## Description
