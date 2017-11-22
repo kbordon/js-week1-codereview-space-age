@@ -1,7 +1,7 @@
 {
   "name": "sgac",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Description _This is an application that will determine a person's age, but by different planet years. The user will enter their birthdate, and also have the option of inputting other factors. After clicking submit button, their age in Mercury, Venus, Mars and Jupiter years will be displayed, as well as their expected remaining years also by respective planets._",
   "main": "index.js",
   "scripts": {
     "test": "karma start karma.conf.js"
@@ -34,5 +34,13 @@
     "karma-jquery": "^0.2.2",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbordon/js-week1-codereview-space-age.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kbordon/js-week1-codereview-space-age/issues"
+  },
+  "homepage": "https://github.com/kbordon/js-week1-codereview-space-age#readme"
 }

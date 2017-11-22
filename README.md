@@ -44,6 +44,7 @@ $ gulp serve
 
 
 ## Known Bugs
+* Input type date does not work on Safari browsers, and potentially others that aren't Chrome.
 * This application does not account for leap years, so a person's age or calculation may be technically off by a few days.
 
 ## Other Comments
