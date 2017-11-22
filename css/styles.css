@@ -27,7 +27,12 @@ h2,h3, h4 {
   font-family: 'Aldrich', sans-serif;
   font-size: 60px;
   font-weight: bolder;
+  /*background: linear-gradient(to bottom right, rgba(218,165,32,0.8), rgba(218,165,32,0));
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;*/
+
   color: white;
+  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 white, 0 -1px white;*/
   text-shadow: 1px 1px 2px black, 0 0 25px goldenrod, 0 0 5px darkgoldenrod;
   /*text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;*/
   margin-top: 75px;
@@ -60,24 +65,37 @@ h2,h3, h4 {
 
 input[type=date], input[type=time], select {
   border: none;
-  background-color: rgba(255,255,255,0.8);
-  color: black;
+  background: linear-gradient(to bottom right, rgba(0,220,255,0.5), rgba(0,220,255,0.1));
+  border-bottom: 2px solid #00DCFF;
+  border-right: 2px solid #00DCFF;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  box-shadow: 2px 2px 20px #00DCFF;
+  /*background-color: rgba(0,220,255,0.45);*/
+  color: white;
+  text-shadow:
+  0 0 9px #00DCFF
+  /*,*/
+   /*0 0 1px white*/
+   ;
+  padding: 15px 15px;
+  /*padding-top: 15px;*/
   border-radius: 4px;
   margin-top: 5px;
 }
 
 input[type=date], input[type=time] {
   width: 90%;
-  border-bottom: 2px solid blue;
-  padding: 15px 15px;
-  padding-top: 15px;
-  font-size: 19px;
+  font-size: 20px;
 }
 
 button#main {
-    background-color: darkred;
-    border-top: 1px solid red;
-    border-left: 1px solid red;
+    background:
+      linear-gradient(rgba(0,220,255,0.15), rgba(0,220,255,0)),
+      linear-gradient(to right, rgb(57,94,119), rgb(44,57,72));
+    /*background-color: darkgray;*/
+    border-top: 1px solid lightgray;
+    border-left: 1px solid lightgray;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     color: white;
@@ -90,22 +108,32 @@ button#main {
 }
 
 button#optional-toggle {
-  background-color: darkred;
-  border-top: 1px solid red;
-  border-left: 1px solid red;
+  background:
+    linear-gradient(rgba(0,220,255,0.15), rgba(0,220,255,0)),
+    linear-gradient(to right, rgb(57,94,119), rgb(44,57,72));
+  /*background-color: darkgray;*/
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   color: white;
-  font-size: 12px;
+  font-size: 16px;
   margin: 0;
 }
 
 select {
   width: 80%;
-  padding: 10px 10px;
-  border-bottom: 1px solid blue;
+  /*padding: 10px 10px;*/
+  /*border-bottom: 1px solid blue;*/
+  font-size: 16px;
+}
+#earth-output {
+  margin-top: 100px;
 }
 
+/*#planets-output {
+  margin-top: 20px;
+}*/
 #Mercury {
   height: 10px;
   width: 10px;
