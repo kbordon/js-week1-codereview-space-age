@@ -142,10 +142,23 @@ describe('Birthdate', function(){
   it(`getTimeBeforeNextBday will get the amount of time in days before a person's upcoming birthday`, function(){
       expect(testBirthdate.getTimeBeforeNextBday(4)).toEqual(236); // For Earth Days
       expect(testBirthdate.getTimeBeforeNextBday(0)).toEqual(984); // For Mercury
-      expect(testBirthdate.getTimeBeforeNextBday(1)).toEqual(381); // For Venus
+      expect(testBirthdate.getTimeBeforeNextBday(1)).toEqual(380); // For Venus
       expect(testBirthdate.getTimeBeforeNextBday(2)).toEqual(125); // For Mars
       expect(testBirthdate.getTimeBeforeNextBday(3)).toEqual(19); // For Jupiter
   });
 
+  it(`getSpecial will return Keith Richards age in 2073 in dog years on the planet Jupiter`, function(){
+    expect(testBirthdate.getSpecial()).toEqual(55);
+  });
+
+  it(`getFlies will return the number of may fly lifespans that make up a person's age. if testing, will fail. relies on Date.now()`, function(){
+    testBirthdate.setAge();
+    expect(testBirthdate.getFlies(testBirthdate.ageSeconds)).toEqual(2877349);
+  })
+
+  it(`getFlies will return the number of may fly lifespans that make up the sun's age, if no age is provided`, function(){
+    testBirthdate.setAge();
+    expect(testBirthdate.getFlies()).toEqual(525600000000000);
+  })
 
 })

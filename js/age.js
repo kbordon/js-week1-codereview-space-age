@@ -118,4 +118,20 @@ export class Birthdate {
     return Math.floor((timeBeforeBday/(1000*60*60*24))/planetRatios[number]);
   }
 
+  getSpecial(){
+    const futureDate = new Date(2073,0,1);
+    const kRichards = new Date(1943,11,18); // Keith Richards's birthday
+    // years Richards will be in 2073
+    const kRYears = (futureDate.getTime() - kRichards.getTime())/(1000*60*60*24*365);
+    // Calculate years into dog years, then get Jupiter conversion
+    return Math.floor(((kRYears-2)*5+24)/11.86);
+  }
+
+  getFlies(age){
+    if (!age && age != 0){
+      age = 5000000000*365*24*60*60;
+    }
+    return Math.floor(age/(60*5));
+  }
+
 }
