@@ -38,7 +38,7 @@ $(document).ready(function(){
     } else {
       earthYearsLeft = `with, for better or worse, about ${newBirthdate.lifeExpectancy - newBirthdate.age} to go but`;
     }
-    $("#earth-output").append(`<h2>You've been on Earth for ${newBirthdate.age} years ${earthYearsLeft} ...</h2>`);
+    $("#earth-output").append(`<h1>You've been on Earth for ${newBirthdate.age} years ${earthYearsLeft} ...</h1>`);
     for(let i = 0; i < 4; i++){
        yearsLeft = newBirthdate.getYearsLeft(i);
        // alert(yearsLeft);
