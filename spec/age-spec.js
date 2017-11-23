@@ -25,9 +25,9 @@ describe('Background', function(){
   });
 
   it('it will create a Background object with different values', function(){
-    let newBG = new Background("female","poor", "US");
+    let newBG = new Background("female","low", "US");
     expect(newBG.gender).toEqual("female");
-    expect(newBG.eClass).toEqual("poor");
+    expect(newBG.eClass).toEqual("low");
     expect(newBG.region).toEqual("US");
   });
 
@@ -42,7 +42,7 @@ describe('Background', function(){
   });
 
   it('it will return US life expectancy based on rich male US background', function(){
-    let newBG = new Background("male", "richest", "US");
+    let newBG = new Background("male", "high", "US");
     expect(newBG.getLifeExpectancy()).toEqual(89);
   });
 
@@ -52,7 +52,7 @@ describe('Background', function(){
   });
 
   it('it will return US life expectancy based on rich US female background', function(){
-    let newBG = new Background("female","richest", "US");
+    let newBG = new Background("female","high", "US");
     expect(newBG.getLifeExpectancy()).toEqual(92);
   });
 
@@ -69,7 +69,7 @@ describe('Birthdate', function(){
     testBG = new Background()
   });
 
-  it('setAge will set the years in seconds from a birthdate', function(){
+  it('setAge will set the years in seconds from a birthdate, if testing, will fail. please see method for notes', function(){
     testBirthdate.setAge();
     expect(testBirthdate.ageSeconds).toEqual(862753570.847)
   });
@@ -80,7 +80,7 @@ describe('Birthdate', function(){
 
   })
 
-  it('getMercuryYrs will get the age of person in Mercury years', function(){
+  it('getMercuryYrs will get the age of person in Mercury years, if testing, will fail. please see method for notes', function(){
     testBirthdate.setAge();
     expect(testBirthdate.getMercuryYrs()).toEqual(113);
   });
@@ -100,7 +100,7 @@ describe('Birthdate', function(){
     expect(testBirthdate.getJupiterYrs()).toEqual(2);
   });
 
-  it('getPlanetYrs will get all the ages by the respective planets', function(){
+  it('getPlanetYrs will get all the ages by the respective planets. if testing, will fail. please see method for notes', function(){
     testBirthdate.setAge();
     expect(testBirthdate.getPlanetYrs()[0]).toEqual(113);
     expect(testBirthdate.getPlanetYrs()[1]).toEqual(44);
@@ -115,7 +115,7 @@ describe('Birthdate', function(){
     expect(testBD2.getYearsLeft(0)).toEqual(188);
   });
 
-  it('getYearsLeft will get years depending on default background and Venus chosen', function(){
+  it('getYearsLeft will get years depending on default background and Venus chosen. if testing, will fail. please see method for notes', function(){
       let lifeExp = testBG.getLifeExpectancy();
       let testBD2 = new Birthdate(testDOB, lifeExp);
       testBD2.setAge();
@@ -137,6 +137,14 @@ describe('Birthdate', function(){
       testBD2.setAge();
       expect(testBD2.getYearsLeft(3)).toEqual(4);
 
+  });
+
+  it(`getTimeBeforeNextBday will get the amount of time in days before a person's upcoming birthday`, function(){
+      expect(testBirthdate.getTimeBeforeNextBday(4)).toEqual(236); // For Earth Days
+      expect(testBirthdate.getTimeBeforeNextBday(0)).toEqual(984); // For Mercury
+      expect(testBirthdate.getTimeBeforeNextBday(1)).toEqual(381); // For Venus
+      expect(testBirthdate.getTimeBeforeNextBday(2)).toEqual(125); // For Mars
+      expect(testBirthdate.getTimeBeforeNextBday(3)).toEqual(19); // For Jupiter
   });
 
 

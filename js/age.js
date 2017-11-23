@@ -59,7 +59,8 @@ export class Birthdate {
   }
 
   setAge(){
-    // For testing purposes, replace Date.now() with 1510951570847
+    // Gets the difference between birthdate and current time, and converts to seconds and years. Then sets to those results to the Birthdate's properties.
+    // For testing purposes, replace Date.now() with 1510951570847 which is the .getTime result of the time this app was created.
     let timeDiffInSeconds = (Date.now() - this.dobDate.getTime())/1000;
     this.ageSeconds = timeDiffInSeconds;
     this.age = Math.floor(timeDiffInSeconds/(365*24*60*60));
@@ -103,6 +104,18 @@ export class Birthdate {
     const planetRatios = [0.24,0.62,1.88,11.86];
     let yearsLeft = this.lifeExpectancy - this.age;
     return Math.round(yearsLeft /= planetRatios[number]);
+  }
+
+  getTimeBeforeNextBday(number){
+    const planetRatios = [0.24,0.62,1.88,11.86,1];
+    let currentTime = new Date();
+    let upcomingBD = (new Date(this.dob));
+    upcomingBD.setFullYear(currentTime.getFullYear());
+    if (upcomingBD.getTime() < currentTime.getTime()){
+      upcomingBD.setFullYear(currentTime.getFullYear() + 1);
+    }
+    let timeBeforeBday = upcomingBD.getTime() - currentTime.getTime();
+    return Math.floor((timeBeforeBday/(1000*60*60*24))/planetRatios[number]);
   }
 
 }
