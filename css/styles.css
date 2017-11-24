@@ -79,7 +79,7 @@ input[type=date], input[type=time], select {
 }
 
 input[type=date], input[type=time] {
-  width: 90%;
+  width: 100%;
   font-size: 20px;
 }
 
@@ -182,12 +182,13 @@ select {
   position: relative;
 
 }
+
 .fun-facts-focus {
   bottom: 280px !important;
   transition: bottom 2s;
 }
 .fun-facts-unfocus {
-  bottom: -270px !important;
+  bottom: -200px !important;
   transition: bottom 0.75s;
 }
 
@@ -248,4 +249,37 @@ select {
 
 .fun-big {
   font-size: 20px;
+}
+
+@media only screen and (max-width: 1224px) {
+  .add-form {
+    margin-top: 15px;
+  }
+  .fun-facts-tab {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
+  .fun-facts-focus {
+    bottom: 350px !important;
+  }
+}
+
+@media only screen and (max-width: 758px) {
+  .fun-facts-focus {
+    bottom: 500px !important;
+  }
+  .fun-facts-unfocus {
+    bottom: -200px !important;
+  }
+  #fun-facts {
+    flex-flow: column nowrap;
+  }
+  #fun-2 {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(220,220,220,0.2);
+    border-bottom: 1px solid rgba(220,220,220,0.2);
+  }
+
 }
