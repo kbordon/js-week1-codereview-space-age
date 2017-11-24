@@ -26,7 +26,7 @@ $(document).ready(function(){
     newBirthdate.setAge();
 
     let planetYears = newBirthdate.getPlanetYrs();
-    const planets = ['Mercury', 'Venus', 'Mars', 'Jupiter'];
+    const planets = [`Mercury`, `Venus`, `Mars`, `Jupiter`, `Earth`];
     let yearsLeft;
     let yearsLeftString = "";
     let planetYearsDisplay;
@@ -62,5 +62,15 @@ $(document).ready(function(){
                                     </div>
                                   </div>`);
     };
+
+    // fun facts display
+    $(`#fun-1`).append(`<h4>Your next birthday will be in:</h4><p><span class='fun-big'>${newBirthdate.getTimeBeforeNextBday(4)}</span> days on Earth</p>`);
+    for(let j = 0; j < 4;j++){
+      let days = newBirthdate.getTimeBeforeNextBday(j);
+      $(`#fun-1`).append(`<p><span class='fun-big'>${days}</span> days on ${planets[j]}</p>`);
+    }
+    $('#fun-2').append(`<p><span class='fun-big'>In the year 2073, the age of Keith Richards in dog years on the planet Jupiter will be...</span></p><h3>${newBirthdate.getSpecial()}</h3>`);
+    $('#fun-3').append(`<span class='fun-big'>May flies live for 5 minutes</span><h3>${newBirthdate.getFlies(newBirthdate.ageSeconds).toLocaleString()}</h3>Number of may fly lifespans to your age<h3>${newBirthdate.getFlies().toLocaleString()}</h3>Number of may fly lifespans to the sun's age (5 billion years!)`);
+
   });
 });

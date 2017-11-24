@@ -72,7 +72,8 @@ input[type=date], input[type=time], select {
   border-top: 1px solid gray;
   border-left: 1px solid gray;
   box-shadow: 2px 2px 20px #00DCFF;
-  /*background-color: rgba(0,220,255,0.45);*/
+  /*on windows, needs a background for options*/
+  background-color: rgba(7,20,37,0.17);
   color: white;
   text-shadow: 0 0 9px #00DCFF, 0 0 1px white;
   padding: 15px 15px;
@@ -176,4 +177,53 @@ select {
   float: right;
   position: absolute;
   z-index: -1;
+}
+
+#fun-facts{
+  /*margin-top: 300px;*/
+  background: linear-gradient(to bottom right, rgba(0,220,255,0.5), rgba(0,220,255,0.1));
+  border-bottom: 2px solid #00DCFF;
+  border-right: 2px solid #00DCFF;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  box-shadow: 2px 2px 20px #00DCFF;
+  padding: 10px 15px;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  min-height: 100%;
+  padding: 10px;
+  text-shadow: 0 0 9px #00DCFF, 0 0 1px white;
+}
+
+/*#fun-facts h2 {
+  margin: 0;
+}*/
+
+#fun-facts h2 {
+  align-self: center;
+  padding: 10px;
+}
+
+#fun-2, #fun-1, #fun-3 {
+  border-left: 1px solid rgba(220,220,220,0.2);
+  /*border-right: 1px solid white;*/
+  padding: 10px;
+  flex: 1;
+  display: none;
+}
+
+/*#fun-2 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}*/
+
+.fun-big {
+  /*border: 1px solid rgba(220,220,220,0.2);*/
+  /*background: rgba(128,128,128,0.1);*/
+  font-size: 20px;
+  /*padding: 2px;*/
 }
