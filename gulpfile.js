@@ -78,7 +78,7 @@ gulp.task('serve', function() {
   gulp.watch(['js/*.js'], ['jsBuild']);
   gulp.watch(['bower.json'], ['bowerBuild']);
   gulp.watch(['*.html', ['htmlBuild']]);
-  // gulp.watch(['css/*.css'], ['cssBuild']);
+  gulp.watch(['css/*.css'], ['cssBuild']);
 });
 
 gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
@@ -93,10 +93,9 @@ gulp.task('htmlBuild', function(){
   browserSync.reload();
 })
 
+//isn't showing updated css
 gulp.task("cssBuild", function() {
-  gulp.src(['css/*.css'])
-  .pipe(concat('vendor.css'))
-  .pipe(gulp.dest('./build/css'))
+  browserSync.reload();
 });
 
 gulp.task("clean", function(){

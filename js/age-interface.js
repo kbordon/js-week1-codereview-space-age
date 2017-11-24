@@ -11,7 +11,8 @@ $(document).ready(function(){
 
   // main age form
   $("#space-age").submit(function(event){
-    $("#earth-output, #planets-output").empty();
+    $("#earth-output, #planets-output,#fun-1,#fun-2,#fun-3").empty();
+    $(".fun-facts-contain").removeClass('opt-hide');
     event.preventDefault();
     let birthDateInput = $("#birthdate").val();
     let birthTimeInput = $("#birthtime").val();
@@ -73,4 +74,17 @@ $(document).ready(function(){
     $('#fun-3').append(`<span class='fun-big'>May flies live for 5 minutes</span><h3>${newBirthdate.getFlies(newBirthdate.ageSeconds).toLocaleString()}</h3>Number of may fly lifespans to your age<h3>${newBirthdate.getFlies().toLocaleString()}</h3>Number of may fly lifespans to the sun's age (5 billion years!)`);
 
   });
+
+  $(`.fun-facts-tab button`).click(function(){
+    $(`#earth-output,#planets-output`).toggleClass("un-focus");
+    if($('.fun-facts-contain').hasClass('fun-facts-focus')) {
+        $('#fun-facts').addClass('opt-hide');
+        $('.fun-facts-contain').addClass('fun-facts-unfocus');
+        $('.fun-facts-contain').removeClass('fun-facts-focus');
+      } else {
+        $('.fun-facts-contain').removeClass('fun-facts-unfocus');
+        $('#fun-facts').removeClass('opt-hide');
+        $('.fun-facts-contain').addClass('fun-facts-focus');
+      }
+  })
 });
