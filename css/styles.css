@@ -79,7 +79,7 @@ input[type=date], input[type=time], select {
 }
 
 input[type=date], input[type=time] {
-  width: 100%;
+  width: 98%;
   font-size: 20px;
 }
 
@@ -185,11 +185,11 @@ select {
 
 .fun-facts-focus {
   bottom: 280px !important;
-  transition: bottom 2s;
+  transition: bottom 1.5s ease-in;
 }
 .fun-facts-unfocus {
-  bottom: -200px !important;
-  transition: bottom 0.75s;
+  bottom: -175px !important;
+  transition: bottom 0.75s ease-out;
 }
 
 .fun-facts-tab h2{
