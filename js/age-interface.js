@@ -65,7 +65,7 @@ $(document).ready(function(){
     };
 
     // fun facts display
-    $(`#fun-1`).append(`<h4>Your next birthday will be in:</h4><p><span class='fun-big'>${newBirthdate.getTimeBeforeNextBday(4)}</span> days on Earth</p>`);
+    $(`#fun-1`).append(`<h4>Your next Earth birthday will be in:</h4><p><span class='fun-big'>${newBirthdate.getTimeBeforeNextBday(4)}</span> days on Earth</p>`);
     for(let j = 0; j < 4;j++){
       let days = newBirthdate.getTimeBeforeNextBday(j);
       $(`#fun-1`).append(`<p><span class='fun-big'>${days}</span> days on ${planets[j]}</p>`);
