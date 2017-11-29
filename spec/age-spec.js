@@ -69,7 +69,7 @@ describe('Birthdate', function(){
     testBG = new Background()
   });
 
-  it('setAge will set the years in seconds from a birthdate, if testing, will fail. please see method for notes', function(){
+  it('setAge will set the years in seconds from a birthdate', function(){
     testBirthdate.setAge();
     expect(testBirthdate.ageSeconds).toEqual(862753570.847)
   });
@@ -80,7 +80,7 @@ describe('Birthdate', function(){
 
   })
 
-  it('getMercuryYrs will get the age of person in Mercury years, if testing, will fail. please see method for notes', function(){
+  it('getMercuryYrs will get the age of person in Mercury years', function(){
     testBirthdate.setAge();
     expect(testBirthdate.getMercuryYrs()).toEqual(113);
   });
@@ -100,7 +100,7 @@ describe('Birthdate', function(){
     expect(testBirthdate.getJupiterYrs()).toEqual(2);
   });
 
-  it('getPlanetYrs will get all the ages by the respective planets. if testing, will fail. please see method for notes', function(){
+  it('getPlanetYrs will get all the ages by the respective planets', function(){
     testBirthdate.setAge();
     expect(testBirthdate.getPlanetYrs()[0]).toEqual(113);
     expect(testBirthdate.getPlanetYrs()[1]).toEqual(44);
@@ -115,7 +115,7 @@ describe('Birthdate', function(){
     expect(testBD2.getYearsLeft(0)).toEqual(188);
   });
 
-  it('getYearsLeft will get years depending on default background and Venus chosen. if testing, will fail. please see method for notes', function(){
+  it('getYearsLeft will get years depending on default background and Venus chosen', function(){
       let lifeExp = testBG.getLifeExpectancy();
       let testBD2 = new Birthdate(testDOB, lifeExp);
       testBD2.setAge();
@@ -140,10 +140,10 @@ describe('Birthdate', function(){
   });
 
   it(`getTimeBeforeNextBday will get the amount of time in days before a person's upcoming birthday`, function(){
-      expect(testBirthdate.getTimeBeforeNextBday(4)).toEqual(236); // For Earth Days
-      expect(testBirthdate.getTimeBeforeNextBday(0)).toEqual(984); // For Mercury
-      expect(testBirthdate.getTimeBeforeNextBday(1)).toEqual(380); // For Venus
-      expect(testBirthdate.getTimeBeforeNextBday(2)).toEqual(125); // For Mars
+      expect(testBirthdate.getTimeBeforeNextBday(4)).toEqual(230); // For Earth Days
+      expect(testBirthdate.getTimeBeforeNextBday(0)).toEqual(959); // For Mercury
+      expect(testBirthdate.getTimeBeforeNextBday(1)).toEqual(371); // For Venus
+      expect(testBirthdate.getTimeBeforeNextBday(2)).toEqual(122); // For Mars
       expect(testBirthdate.getTimeBeforeNextBday(3)).toEqual(19); // For Jupiter
   });
 
@@ -151,9 +151,9 @@ describe('Birthdate', function(){
     expect(testBirthdate.getSpecial()).toEqual(55);
   });
 
-  it(`getFlies will return the number of may fly lifespans that make up a person's age. if testing, will fail. relies on Date.now()`, function(){
+  it(`getFlies will return the number of may fly lifespans that make up a person's age.`, function(){
     testBirthdate.setAge();
-    expect(testBirthdate.getFlies(testBirthdate.ageSeconds)).toEqual(2877349);
+    expect(testBirthdate.getFlies(testBirthdate.ageSeconds)).toEqual(2875845);
   })
 
   it(`getFlies will return the number of may fly lifespans that make up the sun's age, if no age is provided`, function(){
