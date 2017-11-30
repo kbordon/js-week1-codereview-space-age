@@ -62,46 +62,50 @@ describe('Birthdate', function(){
   let testDOB;
   let testBirthdate;
   let testBG;
+  let testcurrentdate;
+  let testDOB2;
 
   beforeEach(function() {
     testDOB = "1990-07-17 00:00:00";
+    testDOB2 = "2017-11-28 00:00:00";
+    testcurrentdate = new Date(testDOB2);
     testBirthdate = new Birthdate(testDOB);
     testBG = new Background()
   });
 
   it('setAge will set the years in seconds from a birthdate', function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.ageSeconds).toEqual(862753570.847)
   });
 
   it('setAge will set the years from a birthdate calculated from seconds and rounded down', function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getAge(testBirthdate.ageSeconds)).toEqual(27);
 
   })
 
   it('getMercuryYrs will get the age of person in Mercury years', function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getMercuryYrs()).toEqual(113);
   });
 
   it('getVenusYrs will get the age of person in Venus years', function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getVenusYrs()).toEqual(44);
   });
 
   it('getMarsYrs will get the age of person in Mars years', function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getMarsYrs()).toEqual(14);
   });
 
   it('getJupiterYrs will get the age of person in Jupiter years', function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getJupiterYrs()).toEqual(2);
   });
 
   it('getPlanetYrs will get all the ages by the respective planets', function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getPlanetYrs()[0]).toEqual(113);
     expect(testBirthdate.getPlanetYrs()[1]).toEqual(44);
     expect(testBirthdate.getPlanetYrs()[2]).toEqual(14);
@@ -111,14 +115,14 @@ describe('Birthdate', function(){
   it('getYearsLeft will get years depending on default background and if Mercury chosen', function(){
     let lifeExp = testBG.getLifeExpectancy();
     let testBD2 = new Birthdate(testDOB, lifeExp);
-    testBD2.setAge();
+    testBD2.setAge(1510951570847);
     expect(testBD2.getYearsLeft(0)).toEqual(188);
   });
 
   it('getYearsLeft will get years depending on default background and Venus chosen', function(){
       let lifeExp = testBG.getLifeExpectancy();
       let testBD2 = new Birthdate(testDOB, lifeExp);
-      testBD2.setAge();
+      testBD2.setAge(1510951570847);
       expect(testBD2.getYearsLeft(1)).toEqual(73);
 
   });
@@ -126,7 +130,7 @@ describe('Birthdate', function(){
   it('getYearsLeft will get years depending on default background and Mars chosen', function(){
       let lifeExp = testBG.getLifeExpectancy();
       let testBD2 = new Birthdate(testDOB, lifeExp);
-      testBD2.setAge();
+      testBD2.setAge(1510951570847);
       expect(testBD2.getYearsLeft(2)).toEqual(24);
 
   });
@@ -134,17 +138,18 @@ describe('Birthdate', function(){
   it('getYearsLeft will get years depending on default background and Jupiter chosen', function(){
       let lifeExp = testBG.getLifeExpectancy();
       let testBD2 = new Birthdate(testDOB, lifeExp);
-      testBD2.setAge();
+      testBD2.setAge(1510951570847);
       expect(testBD2.getYearsLeft(3)).toEqual(4);
 
   });
 
   it(`getTimeBeforeNextBday will get the amount of time in days before a person's upcoming birthday`, function(){
-      expect(testBirthdate.getTimeBeforeNextBday(4)).toEqual(230); // For Earth Days
-      expect(testBirthdate.getTimeBeforeNextBday(0)).toEqual(959); // For Mercury
+
+      expect(testBirthdate.getTimeBeforeNextBday(0, testcurrentdate)).toEqual(959); // For Mercury
       expect(testBirthdate.getTimeBeforeNextBday(1)).toEqual(371); // For Venus
       expect(testBirthdate.getTimeBeforeNextBday(2)).toEqual(122); // For Mars
       expect(testBirthdate.getTimeBeforeNextBday(3)).toEqual(19); // For Jupiter
+      expect(testBirthdate.getTimeBeforeNextBday(4)).toEqual(230); // For Earth Days
   });
 
   it(`getSpecial will return Keith Richards age in 2073 in dog years on the planet Jupiter`, function(){
@@ -152,12 +157,12 @@ describe('Birthdate', function(){
   });
 
   it(`getFlies will return the number of may fly lifespans that make up a person's age.`, function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getFlies(testBirthdate.ageSeconds)).toEqual(2875845);
   })
 
   it(`getFlies will return the number of may fly lifespans that make up the sun's age, if no age is provided`, function(){
-    testBirthdate.setAge();
+    testBirthdate.setAge(1510951570847);
     expect(testBirthdate.getFlies()).toEqual(525600000000000);
   })
 

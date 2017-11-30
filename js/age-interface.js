@@ -24,7 +24,7 @@ $(document).ready(function(){
     let newDate = new Date(`${birthDateInput} ${birthTimeInput}`);
     let newBackground = new Background(genderInput, eclassInput, regionInput);
     let newBirthdate = new Birthdate(`${birthDateInput} ${birthTimeInput}`, newBackground.getLifeExpectancy());
-    newBirthdate.setAge();
+    newBirthdate.setAge(new Date());
 
     let planetYears = newBirthdate.getPlanetYrs();
     const planets = [`Mercury`, `Venus`, `Mars`, `Jupiter`, `Earth`];
