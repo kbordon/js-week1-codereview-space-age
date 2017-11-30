@@ -59,10 +59,6 @@ export class Birthdate {
   }
 
   setAge(thisDate = null){
-    // Gets the difference between birthdate and current time, and converts to seconds and years. Then sets to those results to the Birthdate's properties.
-    // For testing purposes, comment out line 65, and comment in line 64 with 1510951570847 which is the .getTime result of the time this app was created.
-    // let currentTimeInMilliseconds = 1510951570847; // comment this out for production
-    // let currentTimeInMilliseconds = Date.now(); // comment this out for testing
     if(thisDate === null){
       thisDate = new Date();
     }
@@ -116,7 +112,6 @@ export class Birthdate {
     if (currentTime === null) {
       currentTime = new Date();
     }
-    console.log("gettimebeforenextbday: " + currentTime);
     let upcomingBD = (new Date(this.dob));
     upcomingBD.setFullYear(currentTime.getFullYear());
     if (upcomingBD.getTime() < currentTime.getTime()){

@@ -14,21 +14,7 @@ $ npm install
 $ bower install
 ```
 #### Testing
-* In, order to run tests:
-  * You **must** first modify `age.js`.
-    * From the top level folder of the repository, enter the `js` folder and open the `age.js` file with Atom, or your preferred text editor.
-    * On *line 65* which should look like the following:
-    ```javascript
-    let currentTimeInMilliseconds = Date.now(); // comment this out for testing
-    ```
-    Either comment out the line by clicking it, then pressing <kbd>Ctrl</kbd> + <kbd>/</kbd> or <kbd>command</kbd> + <kbd>/</kbd>. Or if you prefer, just delete the line, making sure to put it back for actual production.
-    * On *line 64*:
-    ```javascript
-    // let currentTimeInMilliseconds = 1510951570847; // comment this out for production
-    ```
-    Comment in the line the same way you just commented out the previous line, or just delete the the slashes in beginning of the line. Remember that this is just for testing purposes, and make sure to undo your changes for production.
-
-  * Now, with `age.js` properly set up, in terminal, return to the top level of the project folder. Then, run this command: `$ npm test`
+* In order to run tests, from the top level of the project folder, run this command in terminal: `$ npm test`
 
 ### Running/Production
 * To build project, enter the following (see notes above if you changed `age.js` to run tests):

@@ -62,13 +62,13 @@ describe('Birthdate', function(){
   let testDOB;
   let testBirthdate;
   let testBG;
-  let testcurrentdate;
-  let testDOB2;
+  let testDate;
+  let testCurrentDate;
 
   beforeEach(function() {
     testDOB = "1990-07-17 00:00:00";
-    testDOB2 = "2017-11-28 00:00:00";
-    testcurrentdate = new Date(testDOB2);
+    testDate = "2017-11-28 18:40:57";
+    testCurrentDate = new Date(testDate);
     testBirthdate = new Birthdate(testDOB);
     testBG = new Background()
   });
@@ -145,11 +145,11 @@ describe('Birthdate', function(){
 
   it(`getTimeBeforeNextBday will get the amount of time in days before a person's upcoming birthday`, function(){
 
-      expect(testBirthdate.getTimeBeforeNextBday(0, testcurrentdate)).toEqual(959); // For Mercury
-      expect(testBirthdate.getTimeBeforeNextBday(1)).toEqual(371); // For Venus
-      expect(testBirthdate.getTimeBeforeNextBday(2)).toEqual(122); // For Mars
-      expect(testBirthdate.getTimeBeforeNextBday(3)).toEqual(19); // For Jupiter
-      expect(testBirthdate.getTimeBeforeNextBday(4)).toEqual(230); // For Earth Days
+      expect(testBirthdate.getTimeBeforeNextBday(0, testCurrentDate)).toEqual(959); // For Mercury
+      expect(testBirthdate.getTimeBeforeNextBday(1, testCurrentDate)).toEqual(371); // For Venus
+      expect(testBirthdate.getTimeBeforeNextBday(2, testCurrentDate)).toEqual(122); // For Mars
+      expect(testBirthdate.getTimeBeforeNextBday(3, testCurrentDate)).toEqual(19); // For Jupiter
+      expect(testBirthdate.getTimeBeforeNextBday(4, testCurrentDate)).toEqual(230); // For Earth Days
   });
 
   it(`getSpecial will return Keith Richards age in 2073 in dog years on the planet Jupiter`, function(){
